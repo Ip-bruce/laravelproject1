@@ -1,4 +1,5 @@
 <template>
+    <!-- Index -->
     <div v-for="listing in listings" :key="listing.id">
         <Link :href="route('listing.show',listing.id)" >
          <ListingAddress :listing="listing"/>
