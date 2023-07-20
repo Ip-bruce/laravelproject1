@@ -90,7 +90,7 @@
   //   price: props.listing.price,
   // })
   const form = useForm(props.listing)
-  const update = () => form.put('/listing/'+props.listing.id)
+  const update = () => form.put(route('listing.update',{listing:props.listing.id}))
   console.log(form)
   </script>
   
