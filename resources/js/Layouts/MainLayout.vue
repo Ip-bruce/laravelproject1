@@ -1,33 +1,39 @@
 <template>
-<div>
-    <Link href="/">Main Page</Link>&nbsp;
+    
     <Link href="/hello">Show Page</Link>&nbsp;
-    <Link href="/listing">See Listings</Link>&nbsp;
+    
     <Link href="/listing/create">See Create</Link>
-    <div v-if="flashSuccess" class="success">
-    {{ flashSuccess }}
-  </div>
-    <slot></slot>
-</div>
+  
+    <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 w-full" >
+      <div class="container mx-auto " >
+        <nav class="p-4 flex items-center justify-between" >
+          <div class="text-lg" >
+            <Link :href="route('listing.index')">See Listings</Link>        
+          </div>
+          <div class="text-xl text-blue-800 dark:text-indigo-100 font-bold text-center" >
+            <Link :href="route('listing.index')">HomeRent</Link>
+          </div>
+          <div>
+            <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 font-white p-2 rounded-md" >+New Listing</Link>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-4" >
+      <div v-if="flashSuccess" class="mb-4 border rounded-md shadow-sm border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900 p-2 text-center text-xl font-bold text-white ">
+    {{ flashSuccess }}!
+    </div>
+    </main>
+  
+  <slot>Default</slot>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
  
-//const page = usePage()
 const flashSuccess = computed(
   () => usePage().props.flash.success,
 )
-// import { ref } from 'vue'
- 
-// const timer = ref(0)
-// setInterval(() => timer.value++, 1000)
 </script>
- 
-  <style scoped>
-    .success {
-      background-color: green;
-      color: white;
-    }
-  </style>
