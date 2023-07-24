@@ -1,20 +1,16 @@
 <template>
-    
-    <Link href="/hello">Show Page</Link>&nbsp;
-    
-    <Link href="/listing/create">See Create</Link>
   
-    <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 w-full" >
+    <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 w-full" >
       <div class="container mx-auto " >
         <nav class="p-4 flex items-center justify-between" >
-          <div class="text-lg" >
+          <div class="text-lg font-medium" >
             <Link :href="route('listing.index')">See Listings</Link>        
           </div>
-          <div class="text-xl text-blue-800 dark:text-indigo-100 font-bold text-center" >
+          <div class="text-xl text-indigo-800 dark:text-indigo-100 font-bold text-center" >
             <Link :href="route('listing.index')">HomeRent</Link>
           </div>
           <div>
-            <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 font-white p-2 rounded-md" >+New Listing</Link>
+            <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white dark:text-gray-50 p-2 rounded-md" >+New Listing</Link>
           </div>
         </nav>
       </div>
