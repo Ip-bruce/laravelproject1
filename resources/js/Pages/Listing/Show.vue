@@ -3,11 +3,22 @@
         <Box class=" md:col-span-7 flex items-center w-full" >
             <div class="text-center w-full font-medium text-gray-500" >No Images</div>
         </Box>
-        <Box class="md:col-span-5" >
-            <Price :price="listing.price" class="text-2xl font-bold"/>
-            <ListingSpace :listing = "listing" class="text-lg"/>
-            <ListingAddress :listing="listing" class="text-lg font-bold "/>
-        </Box>
+        <div class="md:col-span-5 flex flex-col gap-4" >
+            <Box class="md:col-span-5" >
+                <template #header >
+                    Basic info
+                </template>
+                <Price :price="listing.price" class="text-2xl font-bold"/>
+                <ListingSpace :listing = "listing" class="text-lg"/>
+                <ListingAddress :listing="listing" class="text-lg font-bold "/>
+            </Box>
+            <Box class="" >
+                <template #header >
+                    Offer
+                </template>
+                Make an offer
+            </Box>
+        </div>
     </div>
 </template>
 
