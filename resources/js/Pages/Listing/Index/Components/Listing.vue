@@ -27,7 +27,7 @@
           Edit
         </Link>
       </div>
-      <div>
+      <div v-if="user">
         <Link
           :href="route('listing.destroy', {listing: listing.id})"
           method="DELETE" as="button"
@@ -39,15 +39,20 @@
   </template>
   
   <script setup>
-  import { Link } from '@inertiajs/vue3'
+  import {computed} from 'vue';
+  import { Link, usePage } from '@inertiajs/vue3';
   import ListingAddress from '@/Components/ListingAddress.vue';
-import Box from '@/Components/UI/Box.vue';
-import ListingSpace from '@/Components/UI/ListingSpace.vue';
-import Price from '@/Components/UI/Price.vue';
-import {ref} from 'vue'
+  import Box from '@/Components/UI/Box.vue';
+  import ListingSpace from '@/Components/UI/ListingSpace.vue';
+  import Price from '@/Components/UI/Price.vue';
+  import {ref} from 'vue'
 
-import { useMonthlyPayment } from '@/Components/useMonthlyPayment';
+  import { useMonthlyPayment } from '@/Components/useMonthlyPayment';
 
   const props = defineProps({listing: Object})
   const { monthlyPayment } = useMonthlyPayment( props.listing.price, 2.5, 25,)
+
+  const user = computed(
+  () => usePage().props.user,
+  )
   </script>
