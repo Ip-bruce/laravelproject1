@@ -20,7 +20,7 @@ class ListingController extends Controller
         return inertia(
             'Listing/Index',
             [
-                'listings' => Listing::all()
+                'listings' => Listing::paginate(15)
                 
             ]
         );
